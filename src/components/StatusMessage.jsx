@@ -1,3 +1,4 @@
+
 const StatusMessage = ({ winner, gamingBoard }) => {
   const { squares, isXNext } = gamingBoard;
 
@@ -11,7 +12,6 @@ const StatusMessage = ({ winner, gamingBoard }) => {
           Winner is{' '}
           <span className={winner === 'X' ? 'text-green' : 'text-orange'}>
             {winner}
-            alert({winner});
           </span>
         </>
       );
