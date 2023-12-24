@@ -1,5 +1,5 @@
 
-const StatusMessage = ({ winner, gamingBoard }) => {
+const StatusMessage = ({ winner, gamingBoard, runnerUp }) => {
   const { squares, isXNext } = gamingBoard;
 
   const noMovesLeft = squares.every(squareValue => squareValue !== null);
@@ -12,6 +12,12 @@ const StatusMessage = ({ winner, gamingBoard }) => {
           Winner is{' '}
           <span className={winner === 'X' ? 'text-green' : 'text-orange'}>
             {winner}
+          </span>
+          <br/>
+          <br/>
+          All the best for next time{' '}
+          <span className={winner === 'X' ? 'text-green' : 'text-orange'}>
+            {runnerUp}
           </span>
         </>
       );

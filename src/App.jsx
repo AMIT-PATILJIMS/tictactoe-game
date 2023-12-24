@@ -8,12 +8,21 @@ import { calculateWinner } from './winner';
 const NEW_GAME = [{ squares: Array(9).fill(null), isXNext: false }];
 
 function App() {
+  var runnerUp = 'X';
   const [history, setHistory] = useState(NEW_GAME);
   const [currentMove, setCurrentMove] = useState(0);
 
   const gamingBoard = history[currentMove];
 
   const { winner, winningSquares } = calculateWinner(gamingBoard.squares);
+
+  if(winner === 'X')
+  {
+    runnerUp = 'O';
+  }
+  else{
+    runnerUp = 'X';
+  }
 
   const handleSquareClick = clickedPosition => {
     if (gamingBoard.squares[clickedPosition] || winner) {
@@ -63,7 +72,7 @@ function App() {
       <h1>
         TIC <span className="text-green">TAC</span> TOE
       </h1>
-      <StatusMessage winner={winner} gamingBoard={gamingBoard} />
+      <StatusMessage winner={winner} gamingBoard={gamingBoard} runnerUp={runnerUp}/>
       <Board
         squares={gamingBoard.squares}
         handleSquareClick={handleSquareClick}
